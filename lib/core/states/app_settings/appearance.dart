@@ -1,0 +1,111 @@
+import 'package:flutter/material.dart';
+
+class Appearance {
+  final String name;
+  final Color background, buttonText, primary, valid, invalid, secondaryBgColor;
+  final List<Color> gradientColors;
+
+  final Color credentialText,
+      credentialHintText,
+      credentialInactiveBtn,
+      credentialUnderline,
+      credentialFocusedUnderline,
+      credentialActiveBtn;
+
+  final Color homeText, homeHintText, navigationUnSelect, homeSeparator;
+
+  final Color detailText,
+      detailHintText,
+      detailPriceText,
+      detailTitle,
+      detailBackBtn,
+      detailPopup,
+      detailRating,
+      detailRatingTitle,
+      detailRatingStar,
+      detailRatingArea;
+
+  final Color bottomSheetStick,
+      bottomSheetTitle,
+      bottomSheetText,
+      bottomSheetBg,
+      bottomErrorIconBg,
+      bottomErrorIcon,
+      bottomSheetItemBg;
+
+  Appearance.light({
+    this.name = "light",
+    this.background = const Color(0xFFF5F5F5),
+    this.buttonText = const Color(0xFFFFFFFF),
+    this.primary = const Color(0xFF2AB3C6),
+    this.valid = const Color(0xFF56C0C1),
+    this.invalid = const Color.fromARGB(255, 226, 34, 92),
+    this.credentialText = const Color(0xFF000000),
+    this.credentialHintText = const Color.fromRGBO(0, 0, 0, 0.65),
+    this.credentialInactiveBtn = const Color.fromRGBO(0, 0, 0, 0.15),
+    this.credentialActiveBtn = const Color(0xFF000000),
+    this.gradientColors = const [Color(0xFF188095), Color(0xFF2AB3C6)],
+    this.homeText = const Color(0xFF08293B),
+    this.homeHintText = const Color(0xFF444B51),
+    this.homeSeparator = const Color(0xFFD8D8D8),
+    this.navigationUnSelect = const Color(0xFFBFC2C8),
+    this.detailText = const Color(0xFF838396),
+    this.detailHintText = const Color(0xFF444B51),
+    this.detailPriceText = const Color(0xFF2A404B),
+    this.detailTitle = const Color(0xFFFFFFFF),
+    this.detailBackBtn = const Color(0xFF08293B),
+    this.detailPopup = const Color(0xFF08293B),
+    this.detailRating = const Color(0xFF000000),
+    this.credentialUnderline = const Color.fromRGBO(60, 60, 67, 0.36),
+    this.credentialFocusedUnderline = Colors.cyan,
+    this.detailRatingStar = const Color(0xFFFFE072),
+    this.detailRatingTitle = const Color(0xFF444B51),
+    this.detailRatingArea = const Color(0xFFF1F1F1),
+    this.secondaryBgColor = const Color(0xFFFFFFFF),
+    this.bottomSheetStick = const Color(0xFF1B1C24),
+    this.bottomSheetTitle = const Color(0xFF1B1C24),
+    this.bottomSheetText = const Color.fromRGBO(27, 28, 36, 0.7),
+    this.bottomSheetBg = const Color(0xFFE1E1E1),
+    this.bottomErrorIconBg = const Color(0xFFCC0000),
+    this.bottomErrorIcon = const Color(0xFFFAFAFA),
+    this.bottomSheetItemBg = const Color(0xFFC4C4C4),
+  });
+
+  Appearance.dark({
+    this.name = "dark",
+    this.background = const Color(0xFF181818),
+    this.buttonText = const Color(0xFFFFFFFF),
+    this.primary = const Color(0xFF2AB3C6),
+    this.valid = const Color(0xFF56C0C1),
+    this.invalid = const Color.fromARGB(255, 226, 34, 92),
+    this.credentialText = const Color(0xFFFFFFFF),
+    this.credentialHintText = const Color.fromARGB(172, 255, 255, 255),
+    this.credentialInactiveBtn = const Color.fromRGBO(0, 0, 0, 0.15),
+    this.credentialActiveBtn = const Color(0xFF000000),
+    this.gradientColors = const [Color(0xFF188095), Color(0xFF2AB3C6)],
+    this.homeText = const Color(0xFFFFFFFF),
+    this.homeHintText = const Color.fromARGB(172, 255, 255, 255),
+    this.homeSeparator = const Color(0xFFD8D8D8),
+    this.navigationUnSelect = const Color(0xFFBFC2C8),
+    this.detailText = const Color.fromARGB(172, 255, 255, 255),
+    this.detailHintText = const Color.fromARGB(172, 255, 255, 255),
+    this.detailPriceText = const Color(0xFF2A404B),
+    this.detailTitle = const Color(0xFFFFFFFF),
+    this.detailBackBtn = const Color(0xFFFFFFFF),
+    this.detailPopup = const Color(0xFFFFFFFF),
+    this.detailRating = const Color(0xFFFFFFFF),
+    this.credentialUnderline = const Color(0xFFFFFFFF),
+    this.credentialFocusedUnderline = Colors.cyan,
+    this.detailRatingStar = const Color(0xFFFFE072),
+    this.detailRatingTitle = const Color(0xFFFFFFFF),
+    this.detailRatingArea = const Color(0xFF252526),
+    this.secondaryBgColor = const Color(0xFF252526),
+    this.bottomSheetStick = const Color(0xFF1B1C24),
+    this.bottomSheetTitle = const Color(0xFF1B1C24),
+    this.bottomSheetText = const Color.fromRGBO(27, 28, 36, 0.7),
+    this.bottomSheetBg = const Color(0xFFE1E1E1),
+    this.bottomErrorIconBg = const Color(0xFFCC0000),
+    this.bottomErrorIcon = const Color(0xFFFAFAFA),
+    this.bottomSheetItemBg = const Color(0xFFC4C4C4),
+  });
+}
