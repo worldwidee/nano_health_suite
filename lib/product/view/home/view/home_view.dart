@@ -2,6 +2,7 @@ import 'package:figma_to_flutter/figma_to_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:nano_health_suite/product/init/enum/service_status.dart';
 import 'package:nano_health_suite/product/view/home/model/home_view_model.dart';
 
@@ -81,13 +82,20 @@ class _HomeViewState extends State<HomeView> {
                       return const Center(child: CircularProgressIndicator());
                     case ServiceStatus.success:
                       return model.products != null
-                          ? Padding(
-                              padding: figma.paddingSymmetric(horizontal: 26),
-                              child: ListView.builder(
-                                itemBuilder: (context, index) => ProductView(
-                                    model: model,
-                                    product: model.products![index]),
-                                itemCount: model.products!.length,
+                          ? LiquidPullToRefresh(
+                              showChildOpacityTransition: false,
+                              color: Colors.transparent,
+                              onRefresh: () async {
+                                model.fetchProducts(context: context);
+                              },
+                              child: Padding(
+                                padding: figma.paddingSymmetric(horizontal: 26),
+                                child: ListView.builder(
+                                  itemBuilder: (context, index) => ProductView(
+                                      model: model,
+                                      product: model.products![index]),
+                                  itemCount: model.products!.length,
+                                ),
                               ),
                             )
                           : const SizedBox();

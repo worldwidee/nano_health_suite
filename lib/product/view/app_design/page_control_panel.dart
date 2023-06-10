@@ -29,7 +29,7 @@ class PageControlPanel extends StatelessWidget {
           child: BottomNavigationBar(
             backgroundColor: appearance.secondaryBgColor,
             currentIndex: navigationShell.currentIndex,
-            type: BottomNavigationBarType.shifting,
+            type: BottomNavigationBarType.fixed,
             items: [
               for (int i = 0; i < paths.length; i++)
                 BottomNavigationBarItem(
