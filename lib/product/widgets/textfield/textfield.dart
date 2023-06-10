@@ -29,6 +29,7 @@ class RixaTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final LinearGradient? linearGradient;
   final bool obscureText;
+  final TextInputAction? textInputAction;
   RixaTextField({
     super.key,
     required this.hintText,
@@ -42,6 +43,7 @@ class RixaTextField extends StatelessWidget {
     this.linearGradient,
     this.borderColor,
     this.borderWidth,
+    this.textInputAction,
     this.radius = 10.0,
     this.obscureText = false,
     this.onChanged,
@@ -106,8 +108,8 @@ class RixaTextField extends StatelessWidget {
         obscureText: obscureText,
         autofocus: autoFocus,
         showCursor: showCursor,
-        textInputAction:
-            expands ? TextInputAction.newline : TextInputAction.done,
+        textInputAction: textInputAction ??
+            (expands ? TextInputAction.newline : TextInputAction.done),
         focusNode: focusNode,
         style: textStyle?.copyWith(decoration: TextDecoration.none),
         scrollPadding: EdgeInsets.zero,
@@ -160,6 +162,7 @@ class RixaTextFieldFull extends StatelessWidget {
   final Widget? prefixIcon, suffixIcon;
   final bool showCursor;
   final bool obscureText;
+  final TextInputAction? textInputAction;
   final EdgeInsetsGeometry? padding, innerPadding;
   final String? errorText;
   final double paddingLeft;
@@ -173,6 +176,7 @@ class RixaTextFieldFull extends StatelessWidget {
     this.flex = 1,
     this.textStyle,
     this.obscureText = false,
+    this.textInputAction,
     this.suffixIcon,
     this.labelStyle,
     this.expands = false,
@@ -222,6 +226,7 @@ class RixaTextFieldFull extends StatelessWidget {
           hintText: hintText,
           labelText: labelText,
           controller: controller,
+          textInputAction: textInputAction,
           maxLines: maxLines,
           textStyle: textStyle,
           labelStyle: labelStyle,
@@ -252,7 +257,7 @@ class RixaTextFieldFull extends StatelessWidget {
         ),
         if (errorText != null && error)
           Padding(
-            padding: const EdgeInsets.only(top: 14),
+            padding: const EdgeInsets.only(top: 0, left: 5),
             child: Text(errorText!, style: errorStyle),
           )
       ],

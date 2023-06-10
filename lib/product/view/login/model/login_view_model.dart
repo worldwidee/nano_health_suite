@@ -75,6 +75,8 @@ abstract class _LoginViewModelBase with Store {
           break;
         case ResponseType.errorModelWithData:
           serviceStatus = ServiceStatus.failed;
+
+          errorTextEmail = "Incorrect username or password";
           ErrorBottomSheet.customView(
               title: "Login Error!",
               message: "Your username or password is incorrect",

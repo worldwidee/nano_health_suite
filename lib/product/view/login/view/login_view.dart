@@ -51,6 +51,7 @@ class _LoginViewState extends State<LoginView> {
                           width: double.infinity,
                           error: model.errorEmail,
                           errorText: model.errorTextEmail,
+                          textInputAction: TextInputAction.next,
                           errorStyle: figma.style(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -79,6 +80,9 @@ class _LoginViewState extends State<LoginView> {
                                   ? IconPaths.checkmark
                                   : IconPaths.close,
                               width: figma.px(14.29, Axis.horizontal),
+                              color: model.errorEmail
+                                  ? appearance.invalid
+                                  : appearance.valid,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
