@@ -35,7 +35,7 @@ abstract class _LoginViewModelBase with Store {
   String? errorTextPassword;
 
   bool get errorEmail => errorTextEmail != null;
-  bool get errorPassword => errorTextEmail != null;
+  bool get errorPassword => errorTextPassword != null;
 
   @action
   void updateObscureText() {
@@ -90,7 +90,10 @@ abstract class _LoginViewModelBase with Store {
         case ResponseType.noConnection:
           serviceStatus = ServiceStatus.failed;
           ErrorBottomSheet.listenConnection(
-              context: context, onConnected: () {});
+              context: context,
+              onConnected: () {
+                login(username: username, password: password, context: context);
+              });
           break;
         case ResponseType.unknown:
           serviceStatus = ServiceStatus.failed;
