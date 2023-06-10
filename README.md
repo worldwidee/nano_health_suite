@@ -3,7 +3,11 @@
 ## Breaking Update
 Although I securely hold the token from the login service, I did not add that feature because automatic user authentication is desired or not. Recent updates:
 * If the autoAuth value is set to true in the setup function of AppSettings, it will automatically redirect to the home page in case of a registered token
+* The pages directed by bottom navigation have been added to the design. Added logout button to profile page
 * Added security system that listens to user auth to the application route system. 
+
+## Auth Update
+https://github.com/worldwidee/nano_health_suite/assets/49057380/9f4242db-1837-4f3e-884e-7ce89fa2f158
 
 
 ## Last updates:
