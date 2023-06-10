@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nano_health_suite/core/init/navigation/navigation_enum.dart';
 import 'package:nano_health_suite/core/init/navigation/navigation_extension.dart';
+import 'package:nano_health_suite/core/states/app_user/app_user.dart';
 
 import '../../../product/view/app_design/page_control_panel.dart';
 import '../../../product/view/cart/view/cart_view.dart';
@@ -27,6 +28,8 @@ class RouteService {
           GoRoute(
             path: NavigationEnums.login.route,
             name: NavigationEnums.login.name,
+            redirect: (BuildContext context, GoRouterState state) =>
+                AppUser.instance.isUserLogged ? "/home" : null,
             pageBuilder: (context, state) {
               return buildPageWithDefaultTransition(
                   context: context, state: state, child: const LoginView());
@@ -35,6 +38,8 @@ class RouteService {
           GoRoute(
             path: NavigationEnums.productDetail.route,
             name: NavigationEnums.productDetail.name,
+            redirect: (BuildContext context, GoRouterState state) =>
+                AppUser.instance.isUserLogged ? null : '/login',
             pageBuilder: (context, state) {
               int productId = state.extra as int;
               return buildPageWithDefaultTransition(
@@ -56,6 +61,8 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.home.route,
                     name: NavigationEnums.home.name,
+                    redirect: (BuildContext context, GoRouterState state) =>
+                        AppUser.instance.isUserLogged ? null : '/login',
                     pageBuilder: (context, state) {
                       return buildPageWithDefaultTransition(
                           context: context,
@@ -70,6 +77,8 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.cart.route,
                     name: NavigationEnums.cart.name,
+                    redirect: (BuildContext context, GoRouterState state) =>
+                        AppUser.instance.isUserLogged ? null : '/login',
                     pageBuilder: (context, state) {
                       return buildPageWithDefaultTransition(
                           context: context,
@@ -84,6 +93,8 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.favorites.route,
                     name: NavigationEnums.favorites.name,
+                    redirect: (BuildContext context, GoRouterState state) =>
+                        AppUser.instance.isUserLogged ? null : '/login',
                     pageBuilder: (context, state) {
                       return buildPageWithDefaultTransition(
                           context: context,
@@ -98,6 +109,8 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.profile.route,
                     name: NavigationEnums.profile.name,
+                    redirect: (BuildContext context, GoRouterState state) =>
+                        AppUser.instance.isUserLogged ? null : '/login',
                     pageBuilder: (context, state) {
                       return buildPageWithDefaultTransition(
                           context: context,

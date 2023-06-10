@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:nano_health_suite/core/states/app_settings/appearance.dart';
+import 'package:nano_health_suite/core/states/app_user/app_user.dart';
 import 'package:nano_health_suite/product/service/auth/auth_service.dart';
 
 import '../../../product/service/general/general_service.dart';
@@ -36,7 +37,8 @@ class AppSettings extends GetxController {
 
   static AppSettings get instance => Get.find<AppSettings>();
 
-  Future<void> setup() async {
+  Future<void> setup({required bool autoAuth}) async {
+    await AppUser.instance.checkAuth();
     await initSharedReferences();
     String? appearanceName = getAppearanceFromShared() ?? "light";
     if (appearanceName == "light") {

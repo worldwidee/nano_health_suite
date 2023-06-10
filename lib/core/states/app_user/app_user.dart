@@ -21,6 +21,18 @@ class AppUser extends GetxController {
     await saveToken(user.loginProviderToken);
     isUserLogged = true;
     _user = user;
+    update();
+  }
+
+  Future<bool> checkAuth() async {
+    String? token = await getToken;
+    if (token != null) {
+      await login(
+          AuthUser(username: "", password: "", loginProviderToken: token));
+      return true;
+    } else {
+      return false;
+    }
   }
 
   Future<void> saveToken(String? token) async {
@@ -37,5 +49,7 @@ class AppUser extends GetxController {
   Future<void> logout() async {
     isUserLogged = false;
     _user = null;
+    await saveToken(null);
+    update();
   }
 }
