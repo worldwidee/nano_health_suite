@@ -10,6 +10,7 @@ import '../../../product/view/home/view/home_view.dart';
 import '../../../product/view/login/view/login_view.dart';
 import '../../../product/view/product_detail/view/product_detail_view.dart';
 import '../../../product/view/profile/view/profile_view.dart';
+import 'custom_transition_route.dart';
 
 class RouteService {
   final GlobalKey<NavigatorState> _rootNavigatorKey;
@@ -26,16 +27,22 @@ class RouteService {
           GoRoute(
             path: NavigationEnums.login.route,
             name: NavigationEnums.login.name,
-            builder: (context, state) => const LoginView(),
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                  context: context, state: state, child: const LoginView());
+            },
           ),
           GoRoute(
             path: NavigationEnums.productDetail.route,
             name: NavigationEnums.productDetail.name,
-            builder: (context, state) {
+            pageBuilder: (context, state) {
               int productId = state.extra as int;
-              return ProductDetailView(
-                productId: productId,
-              );
+              return buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: ProductDetailView(
+                    productId: productId,
+                  ));
             },
           ),
           StatefulShellRoute.indexedStack(
@@ -49,7 +56,12 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.home.route,
                     name: NavigationEnums.home.name,
-                    builder: (context, state) => const HomeView(),
+                    pageBuilder: (context, state) {
+                      return buildPageWithDefaultTransition(
+                          context: context,
+                          state: state,
+                          child: const HomeView());
+                    },
                   ),
                 ],
               ),
@@ -58,7 +70,12 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.cart.route,
                     name: NavigationEnums.cart.name,
-                    builder: (context, state) => const CartView(),
+                    pageBuilder: (context, state) {
+                      return buildPageWithDefaultTransition(
+                          context: context,
+                          state: state,
+                          child: const CartView());
+                    },
                   ),
                 ],
               ),
@@ -67,7 +84,12 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.favorites.route,
                     name: NavigationEnums.favorites.name,
-                    builder: (context, state) => const FavoritesView(),
+                    pageBuilder: (context, state) {
+                      return buildPageWithDefaultTransition(
+                          context: context,
+                          state: state,
+                          child: const FavoritesView());
+                    },
                   ),
                 ],
               ),
@@ -76,7 +98,12 @@ class RouteService {
                   GoRoute(
                     path: NavigationEnums.profile.route,
                     name: NavigationEnums.profile.name,
-                    builder: (context, state) => const ProfileView(),
+                    pageBuilder: (context, state) {
+                      return buildPageWithDefaultTransition(
+                          context: context,
+                          state: state,
+                          child: const ProfileView());
+                    },
                   ),
                 ],
               ),

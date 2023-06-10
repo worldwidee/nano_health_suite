@@ -48,6 +48,7 @@ dependencies:
   figma_to_flutter: ^0.0.1
   rate: ^0.0.2
   drop_shadow: ^0.1.0
+  page_transition: ^2.0.9
 
 dev_dependencies:
   flutter_test:

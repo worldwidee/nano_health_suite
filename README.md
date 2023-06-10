@@ -1,5 +1,7 @@
 # nano_health_suite
 
+## Last update: added slide transation from left to right when going to detail page
+
 A new Flutter project.
 
 ## Getting Started

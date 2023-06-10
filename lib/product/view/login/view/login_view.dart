@@ -19,8 +19,10 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController =
+      TextEditingController(text: "mor_2314");
+  TextEditingController passwordController =
+      TextEditingController(text: "83r5^_");
 
   var model = LoginViewModel();
 
@@ -86,7 +88,6 @@ class _LoginViewState extends State<LoginView> {
                         height: 32,
                       ),
                       Observer(builder: (context) {
-                        print(model.errorPassword);
                         return RixaTextFieldFull(
                           height: figma.px(65, Axis.vertical),
                           width: double.infinity,
