@@ -58,7 +58,11 @@ abstract class _HomeViewModelBase with Store {
         break;
       case ResponseType.noConnection:
         serviceStatus = ServiceStatus.failed;
-        ErrorBottomSheet.listenConnection(context: context, onConnected: () {});
+        ErrorBottomSheet.listenConnection(
+            context: context,
+            onConnected: () {
+              fetchProducts(context: context);
+            });
         break;
       case ResponseType.unknown:
         serviceStatus = ServiceStatus.failed;

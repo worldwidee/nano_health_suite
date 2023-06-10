@@ -1,7 +1,9 @@
 # nano_health_suite
 
-## Last update: added slide transation from left to right when going to detail page
-## Last update: some improvements have been made to the login page
+## Last updates:
+* added slide transation from left to right when going to detail page
+* some improvements have been made to the login page
+* if the page cannot be loaded because the internet connection is interrupted, the page is automatically reloaded when the user regains internet access
 
 A new Flutter project.
 
